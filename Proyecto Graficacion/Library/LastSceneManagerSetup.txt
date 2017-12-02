@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/MultiPlayerTest.unity
+  isLoaded: 1
+  isActive: 1
