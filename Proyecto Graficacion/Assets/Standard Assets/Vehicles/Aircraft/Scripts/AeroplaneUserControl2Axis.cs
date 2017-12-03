@@ -73,7 +73,7 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             throttle = Mathf.Clamp(intendedThrottle - m_Aeroplane.Throttle, -1, 1);
         }
 
-		public override void OnStartLocalPlayer() {
+		public void Start() {
 /*			cameraInstance = (GameObject)
 				Instantiate (cameraPrefab, this.transform.position, Quaternion.identity);
             var camera = cameraInstance.GetComponentInChildren<AbstractTargetFollower>();
@@ -84,7 +84,10 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             NetworkServer.Spawn(cameraInstance);
             Debug.Log(GetLocalIPAddress());*/
             //this.GetComponent<Camera>()
-            cameraPrefab.GetComponentInChildren<AbstractTargetFollower>().SetTarget(this.transform);
+            if (!isLocalPlayer)
+                return;
+                
+            cameraPrefab.GetComponentInChildren<AbstractTargetFollower>().SetTarget(this.transform);//GetComponent<NetworkIdentity>().transform);
             Camera.main.enabled = false;
             cameraInstance.enabled = true;
 		}

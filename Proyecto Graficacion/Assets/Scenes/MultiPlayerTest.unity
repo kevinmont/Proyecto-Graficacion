@@ -225,12 +225,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342096825}
-  m_LocalRotation: {x: 0.5373864, y: 0.4358473, z: 0.3825066, w: -0.61232483}
-  m_LocalPosition: {x: 265.436, y: -469.70102, z: 254.74146}
+  m_LocalRotation: {x: 0.7144709, y: 0.060979847, z: 0.06276261, w: -0.69417113}
+  m_LocalPosition: {x: 265.64633, y: -448.78128, z: 234.72224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 413035908}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!45 &342096828
 Skybox:
@@ -267,8 +267,9 @@ Transform:
   m_Children:
   - {fileID: 1375083531}
   - {fileID: 848317885}
+  - {fileID: 342096827}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &425730124
 Prefab:
@@ -391,7 +392,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1573486203955596, guid: a183f5d469746bd47831e90622e15451,
+  m_PlayerPrefab: {fileID: 1942144217564080, guid: a183f5d469746bd47831e90622e15451,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -400,7 +401,6 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1053245365492992, guid: 317814157b720d249925044bb61cb566, type: 2}
   - {fileID: 1495292452558864, guid: 7afdfc2af0cde9e4996996423b3fa111, type: 2}
-  - {fileID: 1041998495370770, guid: 23e9e6d11058d7d48b8a53802bee1291, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
