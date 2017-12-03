@@ -4,9 +4,10 @@ using UnityEngine;
 
 using UnityEngine.Networking;
 
-public class Combat : NetworkBehaviour {
+public class Combat : NetworkBehaviour { 
 
     public const int maxHealth = 100;
+    public bool destroyOnDeath;
     
 	[SyncVar]
 	public int health = maxHealth;
@@ -27,6 +28,9 @@ public class Combat : NetworkBehaviour {
 
         health -= amount;
         if (health <= 0) {
+            if (destroyOnDeath) {
+                Destroy(gameObject);
+            }
             health = maxHealth;
 
             // called on the server, will be invoked on the clients

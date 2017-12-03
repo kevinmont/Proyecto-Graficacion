@@ -14,7 +14,7 @@ public class PlayerMove : NetworkBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () { 
 		if (!isLocalPlayer)
 			return;
 

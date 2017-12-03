@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40ee0580a25b6a40b29ca1b2e7f1256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnDeath: 1
   health: 100
 --- !u!136 &136949537228165674
 CapsuleCollider:
