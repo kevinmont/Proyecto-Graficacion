@@ -225,8 +225,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342096825}
-  m_LocalRotation: {x: 0.7144709, y: 0.060979847, z: 0.06276261, w: -0.69417113}
-  m_LocalPosition: {x: 265.64633, y: -448.78128, z: 234.72224}
+  m_LocalRotation: {x: 0.7104438, y: 0.08813961, z: 0.09044511, w: -0.6923299}
+  m_LocalPosition: {x: 265.66187, y: -446.38208, z: 234.66226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 413035908}
@@ -443,8 +443,8 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
-  m_UseWebSockets: 0
+  m_Channels: 0500000000000000
+  m_UseWebSockets: 1
   m_UseSimulator: 0
   m_SimulatedLatency: 1
   m_PacketLossPercentage: 0
