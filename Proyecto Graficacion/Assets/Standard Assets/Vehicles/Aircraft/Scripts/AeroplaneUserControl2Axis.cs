@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+using System.Net;
+using System.Net.Sockets;
+
 using UnityEngine.Networking;
 
 using UnityStandardAssets.Cameras;
@@ -19,7 +22,9 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         private AeroplaneController m_Aeroplane;
 
 		//Custom values
-		public GameObject cameraPrefab;
+		public Camera cameraInstance;
+
+        public GameObject cameraPrefab;
 
         private void Awake()
         {
@@ -40,9 +45,9 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
 
             // auto throttle up, or down if braking.
             float throttle = airBrakes ? -1 : 1;
-#if MOBILE_INPUT
+            #if MOBILE_INPUT
             AdjustInputForMobileControls(ref roll, ref pitch, ref throttle);
-#endif
+            #endif
             // Pass the input to the aeroplane
             m_Aeroplane.Move(roll, pitch, 0, throttle, airBrakes);
         }
@@ -69,11 +74,33 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         }
 
 		public override void OnStartLocalPlayer() {
-            Debug.Log("Start Player");
-			GameObject cameraInstance = (GameObject)
+/*			cameraInstance = (GameObject)
 				Instantiate (cameraPrefab, this.transform.position, Quaternion.identity);
             var camera = cameraInstance.GetComponentInChildren<AbstractTargetFollower>();
 			camera.SetTarget(GetComponent<NetworkIdentity>().gameObject.transform);
+            //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>()
+            mainCamera.enabled = false;
+            camera.enabled = true;
+            NetworkServer.Spawn(cameraInstance);
+            Debug.Log(GetLocalIPAddress());*/
+            //this.GetComponent<Camera>()
+            cameraPrefab.GetComponentInChildren<AbstractTargetFollower>().SetTarget(this.transform);
+            Camera.main.enabled = false;
+            cameraInstance.enabled = true;
 		}
+
+        public void OnDestroy() {
+            //Camera.main.enabled = true;
+        }
+       
+        public static string GetLocalIPAddress() {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList) {
+                if (ip.AddressFamily == AddressFamily.InterNetwork) {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
     }
 }
